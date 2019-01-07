@@ -2,6 +2,7 @@ import CodeMirror from 'codemirror';
 import "../node_modules/codemirror/lib/codemirror.css";
 import "../node_modules/codemirror/theme/dracula.css";
 import "../node_modules/codemirror/mode/javascript/javascript.js";
+import expect from 'expect'
 
 window.CodeMirror = CodeMirror;
 function getUrlParams() {

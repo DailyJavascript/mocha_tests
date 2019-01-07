@@ -6,11 +6,11 @@
   <title>Mocha Tests</title>
   <link href="https://unpkg.com/mocha@5.2.0/mocha.css" rel="stylesheet" />
   <!-- <script src="https://unpkg.com/chai/chai.js"></script> -->
-  <!-- <script src="https://unpkg.com/expect@%3C21/umd/expect.min.js"></script> -->
+  <script src="https://unpkg.com/expect@%3C21/umd/expect.min.js"></script>
   <script src="https://unpkg.com/mocha@5.2.0/mocha.js"></script>
   <script src="https://unpkg.com/mocha-clean@1.0.0/index.js"></script>
   <script>mocha.setup('bdd')</script>
-  <script>mocha.traceIgnores = ['mocha.js', 'chai.js']</script>
+  <script>mocha.traceIgnores = ['mocha.js', 'chai.js', 'expect']</script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel="stylesheet" href="dist/style.css">
@@ -26,9 +26,7 @@
       Instructions: <span id="challenge"></span>
     </p>
     <div class="flex">
-    <textarea id="code">function test(){
-  //your code here
-}
+    <textarea id="code">// write your code here
     </textarea>
     <div>
     <button class="btn btn-outline-danger mt-4">Submit Code For Review</button>
@@ -80,7 +78,8 @@ function subscriber(mutations) {
 mutations.forEach((mutation) => {
 // handle mutations here
   if (mutation.addedNodes.length && mutation.addedNodes[0].className === "test fail") {
-    console.log(mutation.target.children[0].innerText.split('at')[0])
+    mutation.target.children[0].children[1].innerText = mutation.target.children[0].children[1].innerText.split('at')[0]
+    // console.log(mutation.target.children[0].innerHTML)
   }
   if (mutation.target.localName === "code"){
     resetTests();
