@@ -23,7 +23,7 @@ function getChallenge() {
     return false;
   }
 
-  xhr.open("GET", `http://localhost:3000/challenges/${id}`, true);
+  xhr.open("GET", `https://dailyjavascript.herokuapp.com/challenges/${id}`, true);
   //Send the proper header information along with the request
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function () { // Call a function when the state changes.
