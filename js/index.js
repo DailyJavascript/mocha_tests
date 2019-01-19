@@ -19,11 +19,12 @@ window.getUrlParams = getUrlParams;
 function getChallenge() {
   const xhr = new XMLHttpRequest();
   const id = getUrlParams()['id'];
+  const userID = getUrlParams()['user_id']
   if (!xhr) {
     return false;
   }
-
-  xhr.open("GET", `https://dailyjavascript.herokuapp.com/challenges/${id}`, true);
+  let url = (userID) ? `https://dailyjavascript.herokuapp.com/challenges/${id}?user_id=${user_id}` : `https://dailyjavascript.herokuapp.com/challenges/${id}`;
+  xhr.open("GET", url, true);
   //Send the proper header information along with the request
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function () { // Call a function when the state changes.
