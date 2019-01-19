@@ -23,7 +23,7 @@ function getChallenge() {
   if (!xhr) {
     return false;
   }
-  let url = (userID) ? `https://dailyjavascript.herokuapp.com/challenges/${id}?user_id=${user_id}` : `https://dailyjavascript.herokuapp.com/challenges/${id}`;
+  let url = (userID) ? `https://dailyjavascript.herokuapp.com/challenges/${id}?user_id=${userID}` : `https://dailyjavascript.herokuapp.com/challenges/${id}`;
   xhr.open("GET", url, true);
   //Send the proper header information along with the request
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
