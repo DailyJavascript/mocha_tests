@@ -20,3 +20,7 @@ ul#mocha-stats {
   position: absolute;
   top: 4em;
 }
+
+div#mocha {
+  margin: 0;
+}
