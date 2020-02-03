@@ -13,7 +13,7 @@
 
 /*add height to code editor */
 .CodeMirror.cm-s-dracula.CodeMirror-wrap {
-  height: 35em;
+  height: 30em;
 }
 
 ul#mocha-stats {
