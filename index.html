@@ -17,26 +17,54 @@
   <script src="./dist/main.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
     type="text/css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div id="mocha"></div>
-    <p class="lead">
-      Instructions: <span id="challenge"></span>
-    </p>
-    <div class="flex">
-    <textarea id="code">// write your code here
-    </textarea>
-    <div>
-    <button class="btn btn-outline-danger mt-4">Submit Code For Review</button>
+  <nav class="navbar navbar-light static-top js-yellow">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">Daily JavaScript</a>
+    </div>
+  </nav>
+  <div class="container-fluid mt-5">
+    <div class="container">
+      <div class="row">
+      <div class="col">
+        <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="pills-instructions-tab" data-toggle="pill" href="#pills-instructions" role="tab" aria-controls="pills-instructions" aria-selected="true">Instructions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-results-tab" data-toggle="pill" href="#pills-results" role="tab" aria-controls="pills-results" aria-selected="false">Results</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-instructions" role="tabpanel" aria-labelledby="pills-instructions-tab">
+            <p class="lead"><span id="challenge"></span></p>
+          </div>
+          <div class="tab-pane fade" id="pills-results" role="tabpanel" aria-labelledby="pills-results-tab">
+           <div id="mocha"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="flex">
+          <textarea id="code">// write your code here
+          </textarea>
+        </div>
+        <button class="btn btn-outline-danger mt-4">Submit Code For Review</button>
+      </div>
+      </div>
+    </div>
     <script>
         var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('code'), {
           lineNumbers: true,
           lineWrapping: true,
           theme: 'dracula',
         });
-      </script>
+    </script>
     <script>
       function resetTests() {
         mocha.suite.suites = []
@@ -95,7 +123,6 @@ observer.observe(target, config);
     //TODO: add files to suite & do things
     </script>
   </div>
-  <script id="testSpecs"></script>
 </body>
 
 </html>
