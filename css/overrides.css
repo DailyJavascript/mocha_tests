@@ -24,3 +24,7 @@ ul#mocha-stats {
 div#mocha {
   margin: 0;
 }
+
+li.suite {
+  margin-top: 3rem;
+}
