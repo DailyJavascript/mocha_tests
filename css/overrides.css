@@ -25,6 +25,6 @@ div#mocha {
   margin: 0;
 }
 
-li.suite {
+#mocha-report {
   margin-top: 3rem;
 }
