@@ -7,7 +7,7 @@ import expect from 'expect'
 window.CodeMirror = CodeMirror;
 function getUrlParams() {
   var vars = {};
-  window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function() {
+  window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function () {
     //the arguments passed in will always be the same
     vars[arguments[1]] = arguments[2];
   });
@@ -23,15 +23,15 @@ function getChallenge() {
   if (!xhr) {
     return false;
   }
-  let url = (userID) ? `https://dailyjavascript.herokuapp.com/challenges/${id}?user_id=${userID}` : `https://dailyjavascript.herokuapp.com/challenges/${id}`;
+  let url = (userID) ? `https://dailyjavascript.herokuapp.com/challenges/?user_id=${userID}&id=${id}` : `https://dailyjavascript.herokuapp.com/challenges/${id}`;
   xhr.open("GET", url, true);
   //Send the proper header information along with the request
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function () { // Call a function when the state changes.
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-     let response = JSON.parse(xhr.response);
-     document.getElementById('challenge').innerHTML = response.challenge;
-     document.getElementById('testSpecs').innerHTML = `${response.test_assertions}`;
+      let response = JSON.parse(xhr.response);
+      document.getElementById('challenge').innerHTML = response.challenge;
+      document.getElementById('testSpecs').innerHTML = `${response.test_assertions}`;
     }
   }
   xhr.send();
@@ -39,7 +39,7 @@ function getChallenge() {
 
 
 document.onreadystatechange = function () {
-  if (document.readyState === "interactive")  {
+  if (document.readyState === "interactive") {
     getChallenge();
   }
 }
